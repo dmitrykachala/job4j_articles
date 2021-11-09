@@ -28,7 +28,8 @@ public class Application {
     private static Properties loadProperties() {
         LOGGER.info("Загрузка настроек приложения");
         var properties = new Properties();
-        try (InputStream in = Application.class.getClassLoader().getResourceAsStream("application.properties")) {
+        try (InputStream in = Application.class.getClassLoader()
+                .getResourceAsStream("application.properties")) {
             properties.load(in);
         } catch (Exception e) {
             LOGGER.error("Не удалось загрузить настройки. { }", e.getCause());
